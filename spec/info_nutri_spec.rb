@@ -21,7 +21,7 @@ RSpec.describe Info_nutricional do
 	end
 
 	it "valoracion de las grasas sasturadas" do
-		expect(@valoracion.vsaturadas),to eq(2.4)
+		expect(@valoracion.vsaturadas).to eq(2.4)
 	end
 
 end
