@@ -2,7 +2,7 @@ require 'lib/info_nutri/info_nutri'
 
 RSpec.describe Info_nutricional do
         before :each do
-		@valoracion=Info_nutricional.new(3.4,4.6, 3.1)
+		@valoracion=Info_nutricional.new(3.4,4.6, 3.1,2.4)
 	end
 
         it "valoracion de las grasas" do
@@ -18,6 +18,10 @@ RSpec.describe Info_nutricional do
 	it "valoracion de las proteinas" do
 		expect(@valoracion.vprotkj).to eq(52.7)
 		expect(@valoracion.vprotkcal).to eq(12.4)
+	end
+
+	it "valoracion de las grasas sasturadas" do
+		expect(@valoracion.vsaturadas),to eq(2.4)
 	end
 
 end
