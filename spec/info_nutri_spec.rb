@@ -1,16 +1,13 @@
-require 'lib/info_nutri'
+require 'lib/info_nutri/info_nutri'
 
-
-describe Info_nutricional do
+RSpec.describe Info_nutricional do
         before :each do
 		@infgrasas=Info_nutricional.new(3.4,2.4)
 	end
 
         it "valoracion de las grasas" do
-		@infgrasas*37
-                @infgrasas*9
-		expect(@infgrasas.vgrasa).to eq(125.8)
-		expect(@infgrasas.vgrasa).to eq(30.6)
+		expect(@infgrasas.vgrasakj).to eq(125.8)
+		expect(@infgrasas.vgrasakcal.round(2)).to eq(30.6)
 	end
 
 end
