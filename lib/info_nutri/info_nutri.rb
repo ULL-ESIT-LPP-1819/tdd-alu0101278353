@@ -1,9 +1,9 @@
 
 class Info_nutricional 
-	attr_reader :grasa , :hidratos, :proteinas, :grasaturadas
+	attr_reader :grasa , :hidratos, :proteinas, :grasaturadas,:sal
 
-	def initialize(grasa ,  hidratos, proteinas, grasaturadas)
-		@grasa , @hidratos, @proteinas, @grasaturadas= grasa, hidratos, proteinas , grasaturadas
+	def initialize(grasa ,  hidratos, proteinas, grasaturadas,sal)
+		@grasa , @hidratos, @proteinas, @grasaturadas,@sal= grasa, hidratos, proteinas , grasaturadas, sal
 	end
 
 	def vgrasakj
@@ -30,4 +30,9 @@ class Info_nutricional
 	def vsaturadas
 		@grasaturadas*1
 	end
+
+	def vsal
+		@sal*1
+	end
+
 end
