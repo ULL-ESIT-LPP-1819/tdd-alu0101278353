@@ -5,7 +5,7 @@ RSpec.describe Info_nutricional do
 		@valoracion=Info_nutricional.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
 	end
 	
-	it "nombre del producto2" do
+	it "nombre del producto" do
 		expect(@valoracion.nombrep).to eq("LECHE ASTURIANA")
 	end
 

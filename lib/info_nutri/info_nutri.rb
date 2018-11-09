@@ -1,9 +1,13 @@
 
 class Info_nutricional 
-	attr_reader :grasa , :hidratos, :proteinas, :grasaturadas,:sal
+	attr_reader :nombre,:grasa , :hidratos, :proteinas, :grasaturadas,:sal
 
-	def initialize(grasa ,  hidratos, proteinas, grasaturadas,sal)
-		@grasa , @hidratos, @proteinas, @grasaturadas,@sal= grasa, hidratos, proteinas , grasaturadas, sal
+	def initialize(nombre,grasa ,  hidratos, proteinas, grasaturadas,sal)
+		@nombre ,@grasa , @hidratos, @proteinas, @grasaturadas,@sal= nombre,grasa, hidratos, proteinas , grasaturadas, sal
+	end
+
+	def nombrep
+		@nombre = "LECHE ASTURIANA"
 	end
 
 	def vgrasakj
