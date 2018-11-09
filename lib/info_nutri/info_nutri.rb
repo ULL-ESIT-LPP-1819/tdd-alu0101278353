@@ -38,5 +38,8 @@ class Info_nutricional
 	def valorenerkj
 		self.vgrasakj+vhidrakj+vprotkj
 	end
+	def valorenerkcal
+		self.vgrasakcal+vhidrakcal+vprotkcal
+	end
 
 end

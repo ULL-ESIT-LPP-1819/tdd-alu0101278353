@@ -20,7 +20,7 @@ RSpec.describe Info_nutricional do
 		expect(@valoracion.vprotkcal).to eq(12.4)
 	end
 
-	it "valoracion de las grasas sasturadas" do
+	it "valoracion de las grasas saturadas" do
 		expect(@valoracion.vsaturadas).to eq(2.4)
 	end
 
@@ -28,8 +28,9 @@ RSpec.describe Info_nutricional do
 		expect(@valoracion.vsal).to eq(0.1)
 	end
 
-	it "valor energetico de la leche" do
+	it "valor energetico de la leche en KJ y Kcal" do
 		expect(@valoracion.valorenerkj).to eq(264.1)
+		expect(@valoracion.valorenerkcal.round(2)).to eq(63.2)
 	end
 
 end
