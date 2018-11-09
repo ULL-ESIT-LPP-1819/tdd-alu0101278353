@@ -35,4 +35,8 @@ class Info_nutricional
 		@sal*1
 	end
 
+	def valorenerkj
+		self.vgrasakj+vhidrakj+vprotkj
+	end
+
 end
