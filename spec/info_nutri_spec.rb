@@ -2,7 +2,11 @@ require 'lib/info_nutri/info_nutri'
 
 RSpec.describe Info_nutricional do
         before :each do
-		@valoracion=Info_nutricional.new(3.6,4.6, 3.1,2.4,0.1)
+		@valoracion=Info_nutricional.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
+	end
+	
+	it "nombre del producto2" do
+		expect(@valoracion.nombrep).to eq("LECHE ASTURIANA")
 	end
 
         it "valoracion de las grasas" do
