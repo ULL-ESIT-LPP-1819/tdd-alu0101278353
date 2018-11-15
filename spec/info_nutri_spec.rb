@@ -1,8 +1,6 @@
-require 'lib/info_nutri/info_nutri'
-
-RSpec.describe Info_nutricional do
+RSpec.describe InfoNutricional do
         before :each do
-		@valoracion=Info_nutricional.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
+		@valoracion=InfoNutricional.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
 	end
 	
 	it "nombre del producto" do
