@@ -48,6 +48,7 @@ RSpec.describe List do
 	end
 
 	it "existe lista vacia?" do
+		l=List.new(nil,nil)
 		expect(l.empty).to eq(true)
 	end
 
