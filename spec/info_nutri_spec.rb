@@ -1,4 +1,5 @@
 require 'lib/info_nutri/info_nutri'
+require 'lib/info_nutri/list'
 
 RSpec.describe Info_nutricional do
         before :each do
@@ -38,4 +39,9 @@ RSpec.describe Info_nutricional do
 	end
 
 end
+Rspec.describe List do
 
+	it "existe un nodo" do
+	expect(n=Node.new(chocolate, galletas,).to eq(nil)
+	end
+end
