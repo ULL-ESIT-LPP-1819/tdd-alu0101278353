@@ -1,5 +1,5 @@
 
-class Info_nutricional 
+class InfoNutricional 
 	attr_reader :nombre,:grasa , :hidratos, :proteinas, :grasaturadas,:sal
 
 	def initialize(nombre,grasa ,  hidratos, proteinas, grasaturadas,sal)
