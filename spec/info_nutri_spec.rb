@@ -42,4 +42,8 @@ RSpec.describe List do
 	it "existe un nodo" do
 		n=Node.new(1,nil,nil)
 	end
+
+	it "existe una lista" do
+		l=List.new(nil,nil)
+	end
 end
