@@ -52,4 +52,9 @@ RSpec.describe List do
 		expect(l.empty).to eq(true)
 	end
 
+	it "insertar por Head" do
+		l=List.new(1,nil,nil)
+		expect(l.insertar).to eq(1)
+	end
+
 end
