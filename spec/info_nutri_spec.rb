@@ -46,4 +46,9 @@ RSpec.describe List do
 	it "existe una lista" do
 		l=List.new(nil,nil)
 	end
+
+	it "existe lista vacia?" do
+		expect(l.empty).to eq(true)
+	end
+
 end
