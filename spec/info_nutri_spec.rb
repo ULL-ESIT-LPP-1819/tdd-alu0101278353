@@ -66,8 +66,14 @@ RSpec.describe List do
 
 	it "extraer por head" do
 		l=List.new(nil,nil)
-		l.extraer_head(1)
-		expect(l.head.value).to eq(1)
+		l.extraer_head(nil)
+		expect(l.head.value).to eq(nil)
+	end
+	
+	it "extraer por tail" do
+		l=List.new(nil,nil)
+		l.extraer_tail(2)
+		expect(l.tail.value).to eq(2)
 	end
 
 end
