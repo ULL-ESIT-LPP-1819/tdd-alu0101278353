@@ -39,6 +39,18 @@ class List
 		end
 	end
 
+	def extraer_head (value)
+		if self.empty
+			n=Node.new(value,nil,nil)
+			@head=n
+			@tail=n
+		else
+			n=Node.new(nil,nil,nil)
+			@head.value=n
+			@tail=n
+
+		end
+	end
 
 
 end   
