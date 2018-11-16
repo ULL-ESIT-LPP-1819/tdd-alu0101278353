@@ -37,3 +37,38 @@ RSpec.describe InfoNutricional do
 
 end
 
+RSpec.describe List do
+
+	it "existe un nodo" do
+		n=Node.new(1,nil,nil)
+	end
+
+	it "existe una lista" do
+		l=List.new(nil,nil)
+	end
+
+	it "existe lista vacia?" do
+		l=List.new(nil,nil)
+		expect(l.empty).to eq(true)
+	end
+
+	it "insertar por head" do
+		l=List.new(nil,nil)
+		l.insertar_head(1)
+		expect(l.head.value).to eq(1)
+	end
+
+	it "insertar por tail" do
+		l=List.new(nil,nil)
+		l.insertar_tail(2)
+		expect(l.tail.value).to eq(2)
+	end
+
+	it "extraer por head" do
+		l=List.new(nil,nil)
+		l.extraer_head(nil)
+		expect(l.head.value).to eq(nil)
+	end
+	
+
+end
