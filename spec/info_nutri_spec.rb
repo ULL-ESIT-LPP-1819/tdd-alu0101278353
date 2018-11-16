@@ -58,4 +58,10 @@ RSpec.describe List do
 		expect(l.head.value).to eq(1)
 	end
 
+	it "insertar por tail" do
+		l=List.new(nil,nil)
+		l.insertar_tail(2)
+		expect(l.tail.value).to eq(2)
+	end
+
 end

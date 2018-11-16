@@ -26,4 +26,19 @@ class List
 			@head=n
 		end
 	end
+
+	def insertar_tail (value)
+		if self.empty
+			n=Node.new(value,nil,nil)
+			@tail=n
+			@head=n
+		else
+			n=Node.new(value,nil,@tail)
+			@tail.next=n
+			@tail=n
+		end
+	end
+
+
+
 end   
