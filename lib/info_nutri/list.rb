@@ -1,6 +1,3 @@
-class List 
-	attr_reader :
-
 Node=Struct.new(:value , :next, :prev)
 
 class List

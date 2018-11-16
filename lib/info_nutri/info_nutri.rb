@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> desarrollo
 class InfoNutricional 
 	attr_reader :nombre,:grasa , :hidratos, :proteinas, :grasaturadas,:sal
 
