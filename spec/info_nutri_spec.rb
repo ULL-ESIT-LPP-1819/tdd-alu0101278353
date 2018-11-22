@@ -35,6 +35,11 @@ RSpec.describe InfoNutricional do
 		expect(@valoracion.valorenerkcal.round(2)).to eq(63.2)
 	end
 
+	it "ingesta de referencia" do
+		expect(@valoracion.ingesta_referencia).to eq(6)
+	end
+
+
 end
 
 RSpec.describe List do
