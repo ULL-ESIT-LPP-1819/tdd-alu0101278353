@@ -45,6 +45,11 @@ class InfoNutricional
 		self.vgrasakcal+vhidrakcal+vprotkcal
 	end
 
+	def ingesta_referencia
+		suma= grasa+grasaturadas
+
+	end
+
 	def to_s
 		"{#{@nombre},#{@grasa},#{@hidratos},#{@proteinas},#{@grasaturada},#{@sal}"
 	end
