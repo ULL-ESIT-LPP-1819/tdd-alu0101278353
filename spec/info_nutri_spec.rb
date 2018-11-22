@@ -77,3 +77,13 @@ RSpec.describe List do
 	
 
 end
+
+
+RSpec.describe Individuo do
+	before :each do
+		@p1=Individuo.new("lucas")	
+	end
+	it "p1 es una instancia de la clase individuo" do
+		expect(@p1).to be_instance_of(Individuo)
+	end
+end
