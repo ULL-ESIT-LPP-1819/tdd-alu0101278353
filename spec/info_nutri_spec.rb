@@ -81,9 +81,14 @@ end
 
 RSpec.describe Individuo do
 	before :each do
-		@p1=Individuo.new("lucas")	
+		@p1=Individuo.new("lucas")
+		@p2=Paciente.new("martin")
 	end
 	it "p1 es una instancia de la clase individuo" do
 		expect(@p1).to be_instance_of(Individuo)
+	end
+
+	it "instancia de la clase paciente" do
+		expect(@p2).to be_instance_of(Paciente)
 	end
 end
