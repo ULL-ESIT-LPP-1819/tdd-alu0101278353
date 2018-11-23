@@ -91,4 +91,13 @@ RSpec.describe Individuo do
 	it "instancia de la clase paciente" do
 		expect(@p2).to be_instance_of(Paciente)
 	end
+	
+	context "tipo" do
+		@p1=Individuo.new("lucas")
+                @p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13)
+	end
+
+	it "debe responder al metodo nombre" do
+		expect(@p1).to respond_to(:name)
+	end
 end
