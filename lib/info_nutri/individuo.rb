@@ -11,6 +11,11 @@ class Individuo
 		puts n.name
 	end
 
+
+	def to_s
+		"Nombre #{@name}"
+	end
+
 end
 
 class Paciente < Individuo
