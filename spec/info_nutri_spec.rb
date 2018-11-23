@@ -97,7 +97,11 @@ RSpec.describe Individuo do
                 @p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13)
 	end
 
-	it "debe responder al metodo nombre" do
+	it "debe responder al metodo nombre de la clase individuo" do
 		expect(@p1).to respond_to(:name)
+	end
+
+	it "debe responder al metodo de datos y nombre de la clase paciente" do
+		expect(@p2).to respond_to(:datos , :name)
 	end
 end
