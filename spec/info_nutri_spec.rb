@@ -111,4 +111,17 @@ RSpec.describe Individuo do
 		expect(@p1).to be_a_kind_of(BasicObject)	
 	end
 
+	it "comprobando jerarquia de p2" do
+		expect(@p2).to be_a_kind_of(Paciente)
+		expect(@p2).to be_a_kind_of(Individuo)
+		expect(@p2).to be_a_kind_of(Object)
+		expect(@p2).to be_a_kind_of(BasicObject)
+	end
+
+	context "clacificación según el IMC" do
+		@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
+		@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
+		@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+	end
+
 end
