@@ -104,4 +104,11 @@ RSpec.describe Individuo do
 	it "debe responder al metodo de datos y nombre de la clase paciente" do
 		expect(@p2).to respond_to(:datos , :name)
 	end
+	
+	it "comprobando la jerarquía de p1" do
+		expect(@p1).to be_a_kind_of(Individuo)
+		expect(@p1).to be_a_kind_of(Object)
+		expect(@p1).to be_a_kind_of(BasicObject)	
+	end
+
 end
