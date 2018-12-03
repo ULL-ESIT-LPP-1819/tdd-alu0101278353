@@ -125,6 +125,8 @@ RSpec.describe Individuo do
 		@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
 		@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
 		@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
+
+
 		end
 	end
 

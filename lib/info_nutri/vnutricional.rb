@@ -48,4 +48,6 @@ class Valoracion_Nutricional
         def media_su
                (@suprailiaco[0]+@suprailiaco[1]+@suprailiaco[2])/3
         end
+
+
 end             
