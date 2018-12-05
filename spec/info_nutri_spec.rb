@@ -1,11 +1,8 @@
 RSpec.describe InfoNutricional do
         before :each do
-		@valoracion=InfoNutricional.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
+		@valoracion=InfoNutricional.new(3.6,4.6, 3.1,2.4,0.1)
 	end
 	
-	it "nombre del producto" do
-		expect(@valoracion.nombrep).to eq("LECHE ASTURIANA")
-	end
 
         it "valoracion de las grasas" do
 		expect(@valoracion.vgrasakj.round(2)).to eq(133.2)
@@ -41,11 +38,11 @@ RSpec.describe InfoNutricional do
 
 	context "Comparable" do
 		before :each do
-			@etiqueta1=InfoNutri.new("Mantequilla",4.5,4.6, 3.1,2.4,0.1)
-			@etiqueta2=InfoNutri.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
+			@etiqueta1=InfoNutricional.new(4.5,4.6, 3.1,2.4,0.1)
+			@etiqueta2=InfoNutricional.new(3.6,4.9, 3.3,2.8,0.2)
 		end
 		it "Usando (>) entre dos etiquetas" do
-			expect(@etiqueta1>@etiqueta2).other.to eq(true)
+			expect(@etiqueta1 > @etiqueta2).to eq(true)
 		end 
 	end
 
