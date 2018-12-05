@@ -39,6 +39,15 @@ RSpec.describe InfoNutricional do
 		expect(@valoracion.ingesta_referencia).to eq(6)
 	end
 
+	context "Comparable" do
+		before :each do
+			@etiqueta1=InfoNutri.new("Mantequilla",4.5,4.6, 3.1,2.4,0.1)
+			@etiqueta2=InfoNutri.new("LECHE ASTURIANA",3.6,4.6, 3.1,2.4,0.1)
+		end
+		it "Usando (>) entre dos etiquetas" do
+			expect(@etiqueta1>@etiqueta2).other.to eq(true)
+		end 
+	end
 
 end
 
@@ -128,6 +137,8 @@ RSpec.describe Individuo do
 
 
 		end
+
 	end
+
 
 end
