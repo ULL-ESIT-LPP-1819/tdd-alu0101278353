@@ -43,7 +43,13 @@ RSpec.describe InfoNutricional do
 		end
 		it "Usando (>) entre dos etiquetas" do
 			expect(@etiqueta1 > @etiqueta2).to eq(true)
-		end 
+		end
+	       it "etiqueta menor que la otra" do
+		       expect(@etiqueta1<@etiqueta2).to eq(false)
+	       end	       
+	       it "etiqueta menor igual que la otra"do
+		       expect(@etiqueta1<=@etiqueta2).to eq(false)
+	       end
 	end
 
 end
