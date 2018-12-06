@@ -218,11 +218,11 @@ RSpec.describe Individuo do
 	context "enumerable"do
 		before :each do
 			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-			l=List.new((),())
+			@l=List.new((),())
 			@l.insertar_head(@per1)
 		end
 		it "metodo collect"do
-			expect(@l.collect{}).to eq()
+			expect(@l.collect{30}).to eq([30])
 		end
 	end
 end

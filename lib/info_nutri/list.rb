@@ -62,7 +62,29 @@ class List
 			false
 		 end
 	end
-		 
+
+	def clasificar_imc (lista)
+		obesidad = List.new((),())
+		sin_obesidad=List.new((),())
+
+		n=lista.extraer_head
+		while !(n.nil?)
+			if n.value.imc >=30
+				obesidad.insertar_head(n.value.imc)
+			else
+				sin_obesidad.insertar_head(n.value.imc)
+			end
+			
+		 n=lista.extraer_head
+		end
+		clasificacion=List.new((),())
+		clasificacion.insertar_head(obesidad)
+		clasificacion.insertar_head(sin_obesidad)
+
+		clasificaion.to_s
+	end
+
+
 
 end   
 
