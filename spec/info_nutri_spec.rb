@@ -224,5 +224,18 @@ RSpec.describe Individuo do
 		it "metodo collect"do
 			expect(@l.collect{30}).to eq([30])
 		end
+
+#		it "metodo select"do
+#			expect(@l.select{@per1}).to eq(["carla",50,1.56,30,16,45,36,28,70,60,12,45])
+#		end
+
+#		it "metodo sort"do 
+#			expect(@l.sort).to eq([50,1.56,30,16,45,36,28,70,60,12,45])
+#		end
+
+
+#		it "metodo max"do
+#			expect(@l.max).to eq(70)
+#		end
 	end
 end

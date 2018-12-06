@@ -19,7 +19,7 @@ class Individuo
 end
 
 class Paciente < Individuo
-	include Comparable
+	include Comparable, Enumerable
 	attr_accessor :datos
 
 	def initialize  (name ,peso , talla , tricipital , bicipital, subescapular ,suprailiaco , brazo , cintura ,cadera, sexo, edad)
@@ -36,6 +36,7 @@ class Paciente < Individuo
 	end
 
 	def enum
-		datos.imc
+		@datos.datos.imc
 	end
+
 end
