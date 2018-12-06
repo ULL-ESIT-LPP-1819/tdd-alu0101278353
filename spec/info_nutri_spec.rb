@@ -40,8 +40,9 @@ RSpec.describe InfoNutricional do
 		before :each do
 			@etiqueta1=InfoNutricional.new(4.5,4.6, 3.1,2.4,0.1)
 			@etiqueta2=InfoNutricional.new(3.6,4.9, 3.3,2.8,0.2)
+			@etiqueta3=InfoNutricional.new(4.5,4.6, 3.1,2.4,0.1)
 		end
-		it "Usando (>) entre dos etiquetas" do
+		it "etiqueta mayor que la otra" do
 			expect(@etiqueta1 > @etiqueta2).to eq(true)
 		end
 	       it "etiqueta menor que la otra" do
@@ -50,6 +51,13 @@ RSpec.describe InfoNutricional do
 	       it "etiqueta menor igual que la otra"do
 		       expect(@etiqueta1<=@etiqueta2).to eq(false)
 	       end
+	       it "etiqueta mayor igual que la otra"do
+		       expect(@etiqueta1>=@etiqueta2).to eq(true)
+	       end
+	       it "usando between entre dos etiquetas" do
+		       expect(@etiqueta2.between?(@etiqueta1, @etiqueta3)).to eq(false)
+	       end
+
 	end
 
 end
@@ -62,6 +70,7 @@ RSpec.describe List do
 
 	it "existe una lista" do
 		l=List.new(nil,nil)
+
 	end
 
 	it "existe lista vacia?" do
@@ -86,8 +95,20 @@ RSpec.describe List do
 		l.extraer_head(nil)
 		expect(l.head.value).to eq(nil)
 	end
-	
-
+	context "lista con las etiquetas" do
+		before :each do
+			@eti1=InfoNutricional.new(1,5,8,9,6)
+			@eti2=InfoNutricional.new(1,5,8,9,3)
+			@eti3=InfoNutricional.new(1,5,8,9,1)
+			@eti4=InfoNutricional.new(1,5,8,9,7)
+			@eti5=InfoNutricional.new(1,5,8,9,9)
+			@eti6=InfoNutricional.new(1,5,8,9,2)
+		end
+		it "introduciendo la etiqueta"do
+			l=List.new(nil,nil)
+			expect(l.insertar_head(@eti1)).to be_a(Node)
+		end
+	end
 end
 
 
@@ -132,16 +153,26 @@ RSpec.describe Individuo do
 
 	context "clacificación según el IMC" do
 		before :each do
-		@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-		@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
-		@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
-		@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
-		@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
-
-
+			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
+			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
+			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+			@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
+			@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
 		end
-
+		it "clacificacion del paciente segun el IMC"do
+			l=List.new((),())
+			l.insertar_head(@per1)
+		end
 	end
+	context "comparable" do
+		before :each do
+			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
+			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
+			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
 
-
+			it "Valoracion Nutricional de una persona mayor que otra" do
+			expect(@per1>@per2).to eq(true)
+			end
+		end
+	end
 end

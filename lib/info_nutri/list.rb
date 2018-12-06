@@ -1,7 +1,7 @@
 Node=Struct.new(:value , :next, :prev)
 
 class List
-	attr_reader :head ,:tail
+	attr_accessor :head ,:tail
 	def initialize(head, tail)
 		@head=nil
 		@tail=nil
@@ -21,7 +21,7 @@ class List
 			@head=n
 			@tail=n
 		else
-			n=Node.new(value,@head,nil)
+			n=Node.new(value,@tail,nil)
 			@head.new=n
 			@head=n
 		end
