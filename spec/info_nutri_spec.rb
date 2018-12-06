@@ -178,5 +178,8 @@ RSpec.describe Individuo do
 			it "Valoracion Nutricional de una persona menor que el de la otra" do
 				expect(@per1<@per2).to eq(true)
 			end
+			it "Valotracion Nutricional de una persona mayor igual que el de la otra"do
+				expect(@per1 >= @per2).to eq(false)
+			end
 	end
 end
