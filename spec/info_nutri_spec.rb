@@ -115,15 +115,25 @@ RSpec.describe List do
 			@eti1=InfoNutricional.new(1,5,8,9,6)
 			@eti2=InfoNutricional.new(1,5,8,9,3)
 			@eti3=InfoNutricional.new(1,5,8,9,1)
-			l=List.new((),())
-			@l1.insertar_head(@eti1)
-			@l2.insertar_head(@eti2)
-			@l3.insertar_head(@eti3)
+			@l=List.new((),())
+			@l.insertar_head(@eti1)
 		end
 
 		it "metodo collect "do
-			expect(@l1.collect{5}).to eq(5)
+			expect(@l.collect{5}).to eq([5])
 		end
+
+#		it "metodo select"do
+#			expect(@l.select{@eti1}).to eq([1,5,8,9,6])
+#		end
+		
+#		it"metodo max"do
+#			expect(@l.max).to eq([9])
+#		end		
+		
+#		it "metodo min"do
+#			expect(@l.min).to eq(1)
+#		end
 	end
 end
 
@@ -203,5 +213,16 @@ RSpec.describe Individuo do
 			it "Valoracion Nutricional deuna persona entre dos de ellas"do
 				expect(@per2.between?(@per1,@per2)).to eq(true)
 			end
+	end
+
+	context "enumerable"do
+		before :each do
+			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
+			l=List.new((),())
+			@l.insertar_head(@per1)
+		end
+		it "metodo collect"do
+			expect(@l.collect{}).to eq()
+		end
 	end
 end

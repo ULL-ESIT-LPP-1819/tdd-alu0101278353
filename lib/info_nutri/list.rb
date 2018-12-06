@@ -53,5 +53,16 @@ class List
 		end
 	end
 
+	def each
+		n=Node.new(nil,nil,nil)
+		n=@head
+		 if !(n.nil?)
+			 yield n.value
+		 else
+			false
+		 end
+	end
+		 
+
 end   
 

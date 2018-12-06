@@ -49,8 +49,10 @@ class InfoNutricional
 	end
 
 	def to_s
-		"{#{@grasa},#{@hidratos},#{@proteinas},#{@grasaturada},#{@sal}"
+		"Grasa:#{@grasa}, Hidratos:#{@hidratos}, Proteinas:#{@proteinas}, Grasas Saturadas:#{@grasaturada}, Sal:#{@sal}"
 	end
+
+#		"{#{@grasa},#{@hidratos},#{@proteinas},#{@grasaturada},#{@sal}"
 
 	def <=> (anOther)
 		valorenerkj <=> anOther.valorenerkj
