@@ -151,28 +151,29 @@ RSpec.describe Individuo do
 		expect(@p2).to be_a_kind_of(BasicObject)
 	end
 
-	context "clacificación según el IMC" do
-		before :each do
-			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
-			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
-			@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
-			@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
+		context "clacificación según el IMC" do
+			before :each do
+				@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
+				@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
+				@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+				@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
+				@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
+			end
+			it "clacificacion del paciente segun el IMC"do
+				l=List.new((),())
+				l.insertar_head(@per1)
+			end
 		end
-		it "clacificacion del paciente segun el IMC"do
-			l=List.new((),())
-			l.insertar_head(@per1)
-		end
-	end
+
 	context "comparable" do
 		before :each do
 			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
 			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
 			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
-
-			it "Valoracion Nutricional de una persona mayor que otra" do
-			expect(@per1>@per2).to eq(true)
-			end
 		end
+
+			it "Valoracion Nutricional de una persona mayor que la  otra" do
+				expect(@per1 > @per2).to eq(false)
+			end
 	end
 end

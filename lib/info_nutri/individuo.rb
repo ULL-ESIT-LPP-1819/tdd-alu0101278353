@@ -1,5 +1,6 @@
 
 class Individuo
+	include Comparable
 	attr_accessor :name
 
 	def initialize (name) 
@@ -19,7 +20,6 @@ class Individuo
 end
 
 class Paciente < Individuo
-	include Comparable
 	attr_accessor :datos
 
 	def initialize  (name ,peso , talla , tricipital , bicipital, subescapular ,suprailiaco , brazo , cintura ,cadera, sexo, edad)
@@ -32,6 +32,6 @@ class Paciente < Individuo
 
 	end
 	def <=> (anOther)
-		datos <=> anOther.datos
+		datos.imc <=> anOther.datos.imc
 	end
 end
