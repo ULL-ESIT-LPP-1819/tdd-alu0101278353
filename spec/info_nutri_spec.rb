@@ -105,8 +105,24 @@ RSpec.describe List do
 			@eti6=InfoNutricional.new(1,5,8,9,2)
 		end
 		it "introduciendo la etiqueta"do
-			l=List.new(nil,nil)
+			l=List.new((),())
 			expect(l.insertar_head(@eti1)).to be_a(Node)
+		end
+	end
+
+	context "Enumerable"do
+		before :each do
+			@eti1=InfoNutricional.new(1,5,8,9,6)
+			@eti2=InfoNutricional.new(1,5,8,9,3)
+			@eti3=InfoNutricional.new(1,5,8,9,1)
+			l=List.new((),())
+			@l1.insertar_head(@eti1)
+			@l2.insertar_head(@eti2)
+			@l3.insertar_head(@eti3)
+		end
+
+		it "metodo collect "do
+			expect(@l1.collect{5}).to eq(5)
 		end
 	end
 end

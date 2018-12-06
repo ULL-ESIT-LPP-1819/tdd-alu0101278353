@@ -1,6 +1,7 @@
 Node=Struct.new(:value , :next, :prev)
 
 class List
+	include Enumerable
 	attr_accessor :head ,:tail
 	def initialize(head, tail)
 		@head=nil
