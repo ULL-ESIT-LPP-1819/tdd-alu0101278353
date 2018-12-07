@@ -1,3 +1,4 @@
+require 'info_nutri'
 RSpec.describe InfoNutricional do
         before :each do
 		@valoracion=InfoNutricional.new(3.6,4.6, 3.1,2.4,0.1)
@@ -57,7 +58,6 @@ RSpec.describe InfoNutricional do
 	       it "usando between entre dos etiquetas" do
 		       expect(@etiqueta2.between?(@etiqueta1, @etiqueta3)).to eq(false)
 	       end
-
 	end
 
 end
@@ -69,31 +69,31 @@ RSpec.describe List do
 	end
 
 	it "existe una lista" do
-		l=List.new(nil,nil)
-
+		l=List.new
 	end
 
 	it "existe lista vacia?" do
-		l=List.new(nil,nil)
+		l=List.new
 		expect(l.empty).to eq(true)
 	end
 
 	it "insertar por head" do
-		l=List.new(nil,nil)
+		l=List.new
 		l.insertar_head(1)
 		expect(l.head.value).to eq(1)
 	end
 
 	it "insertar por tail" do
-		l=List.new(nil,nil)
+		l=List.new
 		l.insertar_tail(2)
 		expect(l.tail.value).to eq(2)
 	end
 
 	it "extraer por head" do
-		l=List.new(nil,nil)
-		l.extraer_head(nil)
-		expect(l.head.value).to eq(nil)
+		l=List.new
+		l.insertar_tail(2)
+		l.extraer_head()
+		expect(l.head).to eq(nil)
 	end
 	context "lista con las etiquetas" do
 		before :each do
@@ -105,7 +105,7 @@ RSpec.describe List do
 			@eti6=InfoNutricional.new(1,5,8,9,2)
 		end
 		it "introduciendo la etiqueta"do
-			l=List.new((),())
+			l=List.new
 			expect(l.insertar_head(@eti1)).to be_a(Node)
 		end
 	end
@@ -115,25 +115,27 @@ RSpec.describe List do
 			@eti1=InfoNutricional.new(1,5,8,9,6)
 			@eti2=InfoNutricional.new(1,5,8,9,3)
 			@eti3=InfoNutricional.new(1,5,8,9,1)
-			@l=List.new((),())
+			@l=List.new
 			@l.insertar_head(@eti1)
+			@l.insertar_tail(@eti2)
+			@l.insertar_tail(@eti3)
 		end
 
-		it "metodo collect "do
-			expect(@l.collect{5}).to eq([5])
+		it "metodo collect " do
+			expect(@l.collect{|x| x.sal*39}).to eq([234,117,39])
 		end
 
-#		it "metodo select"do
-#			expect(@l.select{@eti1}).to eq([1,5,8,9,6])
-#		end
+		it "metodo select" do
+			expect(@l.select{|x| x.sal<6}).to eq([@eti2,@eti3])
+		end
 		
-#		it"metodo max"do
-#			expect(@l.max).to eq([9])
-#		end		
+		it"metodo max"do
+			expect(@l.max).to eq(@eti1)
+		end		
 		
-#		it "metodo min"do
-#			expect(@l.min).to eq(1)
-#		end
+		it "metodo min"do
+			expect(@l.min).to eq(@eti3)
+		end
 	end
 end
 
@@ -141,7 +143,7 @@ end
 RSpec.describe Individuo do
 	before :each do
 		@p1=Individuo.new("lucas")
-		@p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13)
+		@p2=Paciente.new("martin",60,1.80,25,30,50,0,8,16,29,5,13)
 	end
 	it "p1 es una instancia de la clase individuo" do
 		expect(@p1).to be_instance_of(Individuo)
@@ -155,13 +157,12 @@ RSpec.describe Individuo do
 		@p1=Individuo.new("lucas")
                 @p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13)
 	end
-
 	it "debe responder al metodo nombre de la clase individuo" do
 		expect(@p1).to respond_to(:name)
 	end
 
 	it "debe responder al metodo de datos y nombre de la clase paciente" do
-		expect(@p2).to respond_to(:datos , :name)
+		expect(@p2).to respond_to(:imc , :to_s)
 	end
 	
 	it "comprobando la jerarquía de p1" do
@@ -186,8 +187,15 @@ RSpec.describe Individuo do
 				@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
 			end
 			it "clacificacion del paciente segun el IMC"do
-				l=List.new((),())
+				l=List.new
 				l.insertar_head(@per1)
+				l.insertar_head(@per2)
+				l.insertar_head(@per3)
+				l.insertar_head(@per4)
+				l.clasificar_imc()
+				expect(l.obesidad).to eq([@per2])
+				expect(l.sin_obesidad).to eq([@per4,@per3,@per1])
+
 			end
 		end
 
@@ -218,24 +226,33 @@ RSpec.describe Individuo do
 	context "enumerable"do
 		before :each do
 			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-			@l=List.new((),())
+                        @per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
+                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+
+			@l=List.new
 			@l.insertar_head(@per1)
+			@l.insertar_head(@per2)
+			@l.insertar_head(@per3)
 		end
 		it "metodo collect"do
-			expect(@l.collect{30}).to eq([30])
+			expect(@l.collect{|x| x.name}).to eq(["carmelo","julio","carla"])
 		end
 
-#		it "metodo select"do
-#			expect(@l.select{@per1}).to eq(["carla",50,1.56,30,16,45,36,28,70,60,12,45])
-#		end
+		it "metodo select"do
+			expect(@l.select{|x| x.imc < 18.5}).to eq([])
+		end
 
-#		it "metodo sort"do 
-#			expect(@l.sort).to eq([50,1.56,30,16,45,36,28,70,60,12,45])
-#		end
+		it "metodo sort"do 
+			expect(@l.sort).to eq([@per1,@per3,@per2])
+		end
 
 
-#		it "metodo max"do
-#			expect(@l.max).to eq(70)
-#		end
+		it "metodo max"do
+			expect(@l.max).to eq(@per2)
+		end
+
+		it "método min" do 
+			expect(@l.min).to eq(@per1)
+		end
 	end
 end

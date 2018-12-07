@@ -2,10 +2,12 @@ Node=Struct.new(:value , :next, :prev)
 
 class List
 	include Enumerable
-	attr_accessor :head ,:tail
-	def initialize(head, tail)
+	attr_accessor :head ,:tail, :obesidad, :sin_obesidad
+	def initialize
 		@head=nil
 		@tail=nil
+		@obesidad=[]
+		@sin_obesidad=[]
 	end
 
 	def empty
@@ -22,8 +24,8 @@ class List
 			@head=n
 			@tail=n
 		else
-			n=Node.new(value,@tail,nil)
-			@head.new=n
+			n=Node.new(value,@head,nil)
+			@head.prev=n
 			@head=n
 		end
 	end
@@ -40,48 +42,38 @@ class List
 		end
 	end
 
-	def extraer_head (value)
-		if self.empty
-			n=Node.new(value,nil,nil)
-			@head=n
-			@tail=n
+	def extraer_head ()
+		if @head==@tail
+			@head=nil
+			@tail=nil
 		else
-			n=Node.new(nil,nil,nil)
-			@head.value=n
-			@tail=n
+			@head=@head.next
+			@head.prev=nil
 
 		end
 	end
 
 	def each
-		n=Node.new(nil,nil,nil)
 		n=@head
-		 if !(n.nil?)
+		 while n!=nil do
 			 yield n.value
-		 else
-			false
+			n= n.next
 		 end
 	end
 
-	def clasificar_imc (lista)
-		obesidad = List.new((),())
-		sin_obesidad=List.new((),())
+	def clasificar_imc
 
-		n=lista.extraer_head
-		while !(n.nil?)
+		n=@head
+		while n!=nil do
 			if n.value.imc >=30
-				obesidad.insertar_head(n.value.imc)
+				obesidad << n.value
 			else
-				sin_obesidad.insertar_head(n.value.imc)
+				sin_obesidad << n.value
 			end
 			
-		 n=lista.extraer_head
+			n=n.next
 		end
-		clasificacion=List.new((),())
-		clasificacion.insertar_head(obesidad)
-		clasificacion.insertar_head(sin_obesidad)
 
-		clasificaion.to_s
 	end
 
 

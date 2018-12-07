@@ -5,12 +5,6 @@ class Individuo
 	def initialize (name) 
 		@name=name
 	end
-	
-	def name
-		n=Individuo.new("nombre")
-		puts n.name
-	end
-
 
 	def to_s
 		"Nombre #{@name}"
@@ -20,23 +14,26 @@ end
 
 class Paciente < Individuo
 	include Comparable, Enumerable
-	attr_accessor :datos
+	attr_accessor :peso , :talla , :tricipital , :bicipital, :subescapular ,:suprailiaco , :brazo , :cintura ,:cadera, :sexo, :edad
 
-	def initialize  (name ,peso , talla , tricipital , bicipital, subescapular ,suprailiaco , brazo , cintura ,cadera, sexo, edad)
-		@name=name
-		@datos=Valoracion_Nutricional.new(peso , talla , tricipital , bicipital, subescapular ,suprailiaco , brazo , cintura ,cadera, sexo, edad)
+	def initialize(name,peso,talla,tricipital,bicipital,subescapular,suprailiaco,brazo,cintura,cadera,sexo,edad)
+		super(name)
+		@peso , @talla , @tricipital , @bicipital, @subescapular ,@suprailiaco , @brazo , @cintura ,@cadera, @sexo, @edad = peso , talla , tricipital , bicipital, subescapular ,suprailiaco , brazo , cintura ,cadera, sexo, edad
 	end
 
 	def to_s
-		"Nombre #{@name}"
+		s=""
+		s << super.to_s
+		s << ",peso:#{@peso}," 
 
 	end
+
 	def <=> (anOther)
-		datos.imc <=> anOther.datos.imc
+		self.imc <=> anOther.imc
 	end
 
-	def enum
-		@datos.datos.imc
-	end
+	def imc
+		peso/(talla*talla)
+        end
 
 end
