@@ -1,15 +1,20 @@
-Node=Struct.new(:value , :next, :prev)
 
+
+
+Node=Struct.new(:value , :next, :prev)
+# Author:: Carla Fernanda Flores Gonzales (mailto:alu0101278353@ull.edu.es)
+#clase list para representar listas enlazadas
 class List
 	include Enumerable
 	attr_accessor :head ,:tail, :obesidad, :sin_obesidad
+	#innicializamos 
 	def initialize
 		@head=nil
 		@tail=nil
 		@obesidad=[]
 		@sin_obesidad=[]
 	end
-
+	#método para ver si la lista está vacía
 	def empty
 		if @head==nil && @tail==nil
 			true
@@ -17,7 +22,7 @@ class List
 			false
 		end
 	end
-
+	#método para insertar una informacion por la cabeza
 	def insertar_head (value)
 		if self.empty
 			n=Node.new(value,nil,nil)
@@ -29,7 +34,7 @@ class List
 			@head=n
 		end
 	end
-
+	#método para insertar una información por la cola
 	def insertar_tail (value)
 		if self.empty
 			n=Node.new(value,nil,nil)
@@ -41,7 +46,7 @@ class List
 			@tail=n
 		end
 	end
-
+	#método definido para extraer datos de la lista por la cabeza
 	def extraer_head ()
 		if @head==@tail
 			@head=nil
@@ -52,7 +57,7 @@ class List
 
 		end
 	end
-
+	#definimos el método del modulo enumerable para que recorra la lista
 	def each
 		n=@head
 		 while n!=nil do
@@ -60,7 +65,7 @@ class List
 			n= n.next
 		 end
 	end
-
+	#método para clasificar los datos del paciente segun el índice de masa corporal 
 	def clasificar_imc
 
 		n=@head
