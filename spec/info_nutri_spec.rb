@@ -255,4 +255,29 @@ RSpec.describe Individuo do
 			expect(@l.min).to eq(@per1)
 		end
 	end
+
+	context "Menú Dietético Para Una Persona"do
+		before each: do
+	       		@eti1=InfoNutricional.new(1,5,8,9,6)
+                        @eti2=InfoNutricional.new(2,8,7,9,4)
+                        @eti3=InfoNutricional.new(1,7,5,9,1)
+                        @eti4=InfoNutricional.new(2,5,8,9,7)
+                        @eti5=InfoNutricional.new(9,5,3,9,4)
+
+			@menu[@eti1,@eti2,@eti3,@eti4,@eti5]
+
+			@per1=Paciente.new("carla",65,1.60,20,45,12,10,15,60,80,0,22)
+			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,1,45)
+                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,1,45)
+                        @per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,0,45)
+                        @per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,1,45)
+
+			@pacientes=[@per1,@per2,@per3,@per4,@per5]
+
+		end
+			it "Menús" do
+				@menu.collect{|x| x>100 x.valorenerkcal}
+			end
+	end
+
 end
