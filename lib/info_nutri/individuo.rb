@@ -81,7 +81,7 @@ class Paciente < Individuo
 	end
 
 	def gasto_acti_fisica
-		(self.gasto_ener_basa)*(self.actividad_fisica)
+		(self.gasto_ener_basal)*(self.actividad_fisica)
 	end
 
 	def gasto_ener_total
