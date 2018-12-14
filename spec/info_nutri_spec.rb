@@ -278,7 +278,7 @@ RSpec.describe Individuo do
 			it "Menús" do
 				sum=0
 				@menu.collect{ |x| sum=sum+x.valorenerkcal}
-				v=@pacientes.collect{|x| (sum-sum*0.1<=x.gasto_ener_total && x.gasto_ener_total<=sum+sum*0.1)}	
+				v=@pacientes.collect{|x| (sum-sum*0.1<=x.gasto_ener_total) && (x.gasto_ener_total<=sum+sum*0.1)}	
 				expect(v).to eq([false,false,false,false,false])
 			end
 	end
