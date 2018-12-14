@@ -143,7 +143,7 @@ end
 RSpec.describe Individuo do
 	before :each do
 		@p1=Individuo.new("lucas")
-		@p2=Paciente.new("martin",60,1.80,25,30,50,0,8,16,29,5,13)
+		@p2=Paciente.new("martin",60,1.80,25,30,50,0,8,16,29,5,13,"reposo")
 	end
 	it "p1 es una instancia de la clase individuo" do
 		expect(@p1).to be_instance_of(Individuo)
@@ -155,7 +155,7 @@ RSpec.describe Individuo do
 	
 	context "tipo" do
 		@p1=Individuo.new("lucas")
-                @p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13)
+                @p2=Paciente.new("martin", 60,1.80,25,30,50,0,8,16,29,5,13,0)
 	end
 	it "debe responder al metodo nombre de la clase individuo" do
 		expect(@p1).to respond_to(:name)
@@ -180,11 +180,11 @@ RSpec.describe Individuo do
 
 		context "clacificación según el IMC" do
 			before :each do
-				@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-				@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
-				@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
-				@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45)
-				@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45)
+				@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45,"reposo")
+				@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45,"reposo")
+				@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45,"reposo")
+				@per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,33,45,"reposo")
+				@per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,33,45,"reposo")
 			end
 			it "clacificacion del paciente segun el IMC"do
 				l=List.new
@@ -201,9 +201,9 @@ RSpec.describe Individuo do
 
 	context "comparable" do
 		before :each do
-			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
-			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45,"reposo")
+			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45,"reposo")
+			@per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45,"reposo")
 		end
 
 			it "Valoracion Nutricional de una persona mayor que la  otra" do
@@ -225,9 +225,9 @@ RSpec.describe Individuo do
 
 	context "enumerable"do
 		before :each do
-			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45)
-                        @per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45)
-                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45)
+			@per1=Paciente.new("carla",50,1.56,30,16,45,36,28,70,60,12,45,"reposo")
+                        @per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,22,45,"reposo")
+                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,33,45,"reposo")
 
 			@l=List.new
 			@l.insertar_head(@per1)
@@ -257,26 +257,29 @@ RSpec.describe Individuo do
 	end
 
 	context "Menú Dietético Para Una Persona"do
-		before each: do
-	       		@eti1=InfoNutricional.new(1,5,8,9,6)
-                        @eti2=InfoNutricional.new(2,8,7,9,4)
-                        @eti3=InfoNutricional.new(1,7,5,9,1)
-                        @eti4=InfoNutricional.new(2,5,8,9,7)
-                        @eti5=InfoNutricional.new(9,5,3,9,4)
+		before :each do
+	       		@eti1=InfoNutricional.new(250,280,108,90,12)
+                        @eti2=InfoNutricional.new(209,185,79,91,45)
+                        @eti3=InfoNutricional.new(181,79,105,299,115)
+                        @eti4=InfoNutricional.new(293,154,80,400,72)
+                        @eti5=InfoNutricional.new(369,454,30,192,44)
 
-			@menu[@eti1,@eti2,@eti3,@eti4,@eti5]
+			@menu=[@eti1,@eti2,@eti3,@eti4,@eti5]
 
-			@per1=Paciente.new("carla",65,1.60,20,45,12,10,15,60,80,0,22)
-			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,1,45)
-                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,1,45)
-                        @per4=Paciente.new("martha",79,1.70,30,16,45,36,28,50,65,0,45)
-                        @per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,1,45)
+			@per1=Paciente.new("carlos",65,1.60,20,45,12,10,15,60,80,'H',22,"reposo")
+			@per2=Paciente.new("julio",90,1.65,30,16,58,36,21,70,65,'M',45,"actividad intensa")
+                        @per3=Paciente.new("carmelo",85,1.72,30,16,45,36,28,50,65,'H',45,"actividad moderada")
+                        @per4=Paciente.new("mario",79,1.70,30,16,45,36,28,50,65,'M',45,"actividad intensa")
+                        @per5=Paciente.new("alvaro",72,1.62,30,16,45,36,28,50,65,'H',45,"actividad ligera")
 
 			@pacientes=[@per1,@per2,@per3,@per4,@per5]
 
 		end
 			it "Menús" do
-				@menu.collect{|x| x>100 x.valorenerkcal}
+				sum=0
+				@menu.collect{ |x| sum=sum+x.valorenerkcal}
+				v=@pacientes.collect{|x| (sum-sum*0.1<=x.gasto_ener_total && x.gasto_ener_total<=sum+sum*0.1)}	
+				expect(v).to eq([false,false,false,false,false])
 			end
 	end
 
