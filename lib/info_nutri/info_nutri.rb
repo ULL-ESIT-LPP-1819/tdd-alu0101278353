@@ -68,9 +68,9 @@ class InfoNutricional
 
 #		"{#{@grasa},#{@hidratos},#{@proteinas},#{@grasaturada},#{@sal}"
 
-	#se define el metodo para incluir el metodo del módulo comprable
+	#se define anOther para incluir el método del módulo comparable
 	def <=> (anOther)
-		valorenerkj <=> anOther.valorenerkj
+		valorenerkcal <=> anOther.valorenerkcal
 	end
 
 end
