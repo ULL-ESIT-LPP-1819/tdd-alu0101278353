@@ -50,10 +50,10 @@ class Paciente < Individuo
 	#método  para calcular el gasto energético basal del individuo segun el género
 	def gasto_ener_basal
 		gasto=0
-			if sexo == 'M' then
-				gasto=((10*peso)+(6.25*talla)-(5*edad))-161
+			if sexo =='M' then
+				gasto=((10*@peso)+(6.25*@talla)-(5*@edad))-161
 			else
-				gasto=((10*peso)+(6.25*talla)-(5*edad))+5
+				gasto=((10*@peso)+(6.25*@talla)-(5*@edad))+5
 
 			end
 			gasto

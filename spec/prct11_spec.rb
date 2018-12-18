@@ -28,3 +28,37 @@ RSpec.describe Array do
 	end
 end
 
+RSpec.describe Individuo do
+	before :each do
+		@per1=Paciente.new("carlos",65,1.60,10,45,12,10,15,60,80,'H',22,"reposo")
+                @per2=Paciente.new("julio",90,1.65,30,16,58,16,21,70,65,'M',45,"actividad intensa")
+                @per3=Paciente.new("carmelo",85,1.73,30,16,17,36,28,58,65,'H',45,"actividad moderada")
+                @per4=Paciente.new("mario",79,1.70,30,16,25,36,28,50,65,'M',45,"actividad intensa")
+                @per5=Paciente.new("alvaro",72,1.62,30,16,21,16,28,52,65,'H',45,"actividad ligera")
+		@per6=Paciente.new("carla",50,1.56,30,16,45,36,15,70,60,"M",45,"reposo")
+                @per7=Paciente.new("julia",90,1.65,30,16,58,36,21,70,65,"M",45,"reposo")
+                @per8=Paciente.new("pablo",85,1.72,30,16,25,36,28,50,65,"H",45,"reposo")
+		@per9=Paciente.new("mathias",79,1.70,30,16,11,36,28,20,65,"H",45,"reposo")
+                @per10=Paciente.new("elias",72,1.64,30,10,9,12,28,51,65,"H",30,"reposo")
+		@l=List.new
+		@l.insertar_head(@per1)
+		@l.insertar_head(@per2)
+                @l.insertar_head(@per3)
+		@l.insertar_head(@per4)
+                @l.insertar_head(@per5)
+                @l.insertar_head(@per6)
+		@l.insertar_head(@per7)
+                @l.insertar_head(@per8)
+                @l.insertar_head(@per9)
+		@l.insertar_head(@per10)
+
+	end
+	it "lista de 10  valoraciones nutricionales de personas" do
+		expect(@l.collect{|x| x.gasto_ener_total}).to eq([643.775, 638.6875, 704.825, 576.74375, 136.125, 622.3525000000001, 679.985, 877.913125, 859.8725, 610.5]) 
+
+
+
+
+	end
+end
+
