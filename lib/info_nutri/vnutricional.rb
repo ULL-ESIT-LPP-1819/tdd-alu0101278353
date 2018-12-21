@@ -7,7 +7,7 @@ class Valoracion_Nutricional
                 "(#{@peso}; #{@talla};#{@tricipital};#{@bicipital};#{@subescapular};#{@suprailiaco};#{@brazo};#{@cintura}; #{@cadera}; #{@sexo};#{@edad})"
         end
         def imc
-                @peso/(@talla*@talla)
+                peso/(talla*talla)
         end
 
         def imc_tabla
@@ -30,23 +30,23 @@ class Valoracion_Nutricional
         end
 
         def grasa
-                        1.2*self.imc+0.23*@edad-10.8*@sexo-5.4
+                        1.2*self.imc+0.23*edad-10.8*sexo-5.4
 
         end
         def rcc
-                @cintura/@cadera
+                cintura/cadera
         end
         def media
-                (@tricipital[0]+@tricipital[1]+@tricipital[2])/3
+                (tricipital[0]+tricipital[1]+tricipital[2])/3
         end
         def media_bicipital
-                (@bicipital[0]+@bicipital[1]+@bicipital[2])/3
+                (bicipital[0]+bicipital[1]+bicipital[2])/3
         end
         def media_sub
-               (@subescapular[0]+@subescapular[1]+@subescapular[2])/3
+               (subescapular[0]+subescapular[1]+subescapular[2])/3
         end
         def media_su
-               (@suprailiaco[0]+@suprailiaco[1]+@suprailiaco[2])/3
+               (suprailiaco[0]+suprailiaco[1]+suprailiaco[2])/3
         end
 
 
