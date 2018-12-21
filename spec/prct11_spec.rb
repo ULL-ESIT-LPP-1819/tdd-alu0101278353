@@ -1,3 +1,4 @@
+require 'benchmark'
 RSpec.describe Array do
 	before :all do
 			@eti1=InfoNutricional.new(250,280,108,0,0)
@@ -11,21 +12,35 @@ RSpec.describe Array do
                         @eti9=InfoNutricional.new(420,380,290,0,0)
                         @eti10=InfoNutricional.new(514,254,110,0,0)
                         @eti11=InfoNutricional.new(190,280,339,0,0)
-                        @menu1=[@eti11,@eti2,@eti3,@eti4]
-                        @menu2=[@eti4,@eti6,@eti9,@eti10]
-                        @menu3=[@eti3,@eti7,@eti5,@eti9]
-                        @menu4=[@eti2,@eti5,@eti8,@eti6]
-                        @menu5=[@eti9,@eti2,@eti4,@eti6]
-                        @menu6=[@eti5,@eti10,@eti8,@eti1]
-                        @menu7=[@eti7,@eti11,@eti10,@eti6]
-                        @menu8=[@eti3,@eti6,@eti8,@eti10]
-			@menu9=[@eti11,@eti2,@eti9,@eti5]
-                        @menu10=[@eti6,@eti1,@eti8,@eti4]
+                        @menu1=[@eti11,@eti2]
+                        @menu2=[@eti4,@eti5]
+                        @menu3=[@eti3,@eti7]
+                        @menu4=[@eti2,@eti6]
+                        @menu5=[@eti9,@eti8]
+                        @menu6=[@eti5,@eti10]
+                        @menu7=[@eti7,@eti11]
+                        @menu8=[@eti3,@eti6]
+			@menu9=[@eti11,@eti2]
+                        @menu10=[@eti6,@eti1]
 			@menus=[@menu1,@menu2,@menu3,@menu4,@menu5,@menu6,@menu7,@menu8,@menu9,@menu10]
 	end
 	it "menus dieteticos en un array" do
-		expect(@menus.collect{|x| x.collect{|x| x.valorenerkcal}}).to eq([[4186, 3337, 4365, 5573], [5573, 9910, 6460, 6082], [4365, 6422, 7657, 6460], [3337, 7657, 3896, 9910],[6460,3337,5573,9910],[7657,6082, 3896,3802],[6422,4186,6082,9910], [4365, 9910, 3896, 6082], [4186, 3337, 6460, 7657], [9910, 3802, 3896, 5573]])
+		expect(@menus.collect{|x| x.collect{|x| x.valorenerkcal}}).to eq([[4186, 3337], [5573, 7657], [4365, 6422], [3337, 9910], [6460, 3896], [7657, 6082], [6422, 4186], [4365, 9910], [4186, 3337], [9910, 3802]])
 	end
+
+#	it "menu de array ordenado con for" do
+	#	arr=@menus.collect{|x| x.collect{|x| x.valorenerkcal}}
+	#	expect(arr.select{|x| x.ordenar_for}).to eq([])
+	#	expect(@menu1.collect{|x| x.valorenerkcal}.ordenar_for).to eq([])
+#	end
+
+#	it "menu de array ordenado con each" do
+#		expect(@menus.collect{|x| x.collect{|x| x.valorenerkcal}}.ordenar_each).to eq([[3337,4186],[5573,9910]])
+#	end
+	
+#	it "menu de array ordenado con sort" do
+#		expect(@menus.collect{|x| x.collect{|x| x.valorenerkcal}}.sort{|x,y|} <=> x,y).to eq([])
+#	end
 end
 
 RSpec.describe Individuo do
@@ -55,10 +70,5 @@ RSpec.describe Individuo do
 	end
 	it "lista de 10  valoraciones nutricionales de personas" do
 		expect(@l.collect{|x| x.gasto_ener_total}).to eq([643.775, 638.6875, 704.825, 576.74375, 136.125, 622.3525000000001, 679.985, 877.913125, 859.8725, 610.5]) 
-
-
-
-
 	end
 end
-

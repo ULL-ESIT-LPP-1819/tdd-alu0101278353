@@ -1,10 +1,11 @@
+require 'coveralls'
+Coveralls.wear!
 require "bundler/setup"
 require "info_nutri"
 require "info_nutri/list"
 require "info_nutri/individuo"
 require "info_nutri/vnutricional"
-require 'coveralls'
-Coveralls.wear!
+require "info_nutri/array"
 
 
 RSpec.configure do |config|
